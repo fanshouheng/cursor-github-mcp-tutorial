@@ -36,8 +36,10 @@
 1. 登录 GitHub 后，点击页面右上角的头像，选择 "Settings"
    
 2. 在左侧菜单中选择 "Developer settings"
+   ![GitHub Developer Settings](images/github-developer-settings.png)
    
 3. 点击左侧菜单中的 "Personal access tokens"，然后选择 "Fine-grained tokens"
+   ![Personal Access Tokens](images/github-personal-access-tokens.png)
    
 4. 点击 "Generate new token" 按钮
    
@@ -51,6 +53,7 @@
 6. 点击页面底部的 "Generate token" 按钮
    
 7. **重要**：生成后立即复制显示的令牌，因为它只会显示一次！
+   ![Token Field](images/github-token-field.png)
 
 ## 在 Cursor 中配置 MCP 服务器
 
@@ -59,10 +62,13 @@
 1. 打开 Cursor 编辑器
    
 2. 点击左上角的 "Cursor Settings"（Cursor 设置）
+   ![Cursor Settings](images/cursor-settings.png)
    
 3. 在设置面板中，找到并点击左侧的 "MCP" 选项
+   ![MCP Section](images/cursor-mcp-section.png)
    
 4. 点击 "Add new MCP server" 按钮
+   ![Add MCP Server](images/cursor-add-mcp.png)
    
 5. 在弹出的对话框中填写以下信息：
    - Name：输入 "github"（或您喜欢的任何名称）
@@ -72,6 +78,7 @@
      C:\Windows\System32\cmd.exe /c npx -y @smithery/cli@latest run @smithery-ai/github --config "{"githubPersonalAccessToken":"YOUR_TOKEN_HERE"}"
      ```
      将 `YOUR_TOKEN_HERE` 替换为您之前复制的个人访问令牌
+   ![Command Configuration](images/cursor-command-config.png)
    
 6. 点击 "Add" 按钮完成添加
 
@@ -80,6 +87,7 @@
 添加 MCP 服务器后，您应该看到它在 MCP 列表中显示为已启用状态：
 
 1. 在 MCP 设置页面中，确认您的 GitHub 服务器显示为 "Enabled"
+   ![Enabled MCP](images/cursor-mcp-enabled.png)
    
 2. 您应该能看到可用的工具列表，包括：
    - create_or_update_file
@@ -106,7 +114,8 @@
 **解决方案**：
 - 检查您的个人访问令牌是否正确
 - 确保命令格式正确，特别是 JSON 配置部分
-- 尝试使用 Smithery 网站上提供的确切命令格式
+- 尝试使用 Smithery 网站上提供的确切命令格式：
+  ![Server Command](images/server-command.png)
 
 ### 问题：无法使用某些 GitHub 功能
 
@@ -126,6 +135,7 @@
   ```
   C:\Windows\System32\cmd.exe /c npx -y @smithery/cli@latest run @smithery-ai/github
   ```
+  ![Windows Command](images/windows-command.png)
 
 ## 安全注意事项
 
