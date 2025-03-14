@@ -7,10 +7,11 @@
 1. [前提条件](#前提条件)
 2. [创建 GitHub 账户](#创建-github-账户)
 3. [生成 GitHub 个人访问令牌](#生成-github-个人访问令牌)
-4. [在 Cursor 中配置 MCP 服务器](#在-cursor-中配置-mcp-服务器)
-5. [验证 MCP 服务器设置](#验证-mcp-服务器设置)
-6. [使用 GitHub MCP 功能](#使用-github-mcp-功能)
-7. [常见问题与解决方案](#常见问题与解决方案)
+4. [配置 Smithery GitHub 服务器](#配置-smithery-github-服务器)
+5. [在 Cursor 中配置 MCP 服务器](#在-cursor-中配置-mcp-服务器)
+6. [验证 MCP 服务器设置](#验证-mcp-服务器设置)
+7. [使用 GitHub MCP 功能](#使用-github-mcp-功能)
+8. [常见问题与解决方案](#常见问题与解决方案)
 
 ## 前提条件
 
@@ -54,9 +55,34 @@
    
 7. **重要**：生成后立即复制显示的令牌，因为它只会显示一次！
 
+## 配置 Smithery GitHub 服务器
+
+在将 GitHub 集成到 Cursor 之前，我们需要先在 Smithery 服务上配置 GitHub 连接：
+
+1. 访问 [Smithery GitHub 服务器页面](https://smithery.ai/server/@smithery-ai/github)
+
+2. 在右侧的 "Configuration" 部分，找到 "githubPersonalAccessToken" 输入框
+   <img src="https://raw.githubusercontent.com/fanshouheng/cursor-github-mcp-tutorial/main/images/server-command.png" alt="Smithery Token Configuration" width="800"/>
+
+3. 将您之前复制的 GitHub 个人访问令牌粘贴到输入框中
+
+4. 点击 "Connect" 按钮
+
+5. 连接成功后，在 "Install Command" 部分，您将看到适用于不同操作系统的命令
+   <img src="https://raw.githubusercontent.com/fanshouheng/cursor-github-mcp-tutorial/main/images/windows-command.png" alt="Smithery Install Commands" width="800"/>
+
+6. 对于 Windows 用户，复制以下命令（红圈标记部分）：
+   ```
+   cmd /c npx -y @smithery/cli@latest run @smithery-ai/github
+   ```
+   或
+   ```
+   C:\Windows\System32\cmd.exe /c npx -y @smithery/cli@latest run @smithery-ai/github
+   ```
+
 ## 在 Cursor 中配置 MCP 服务器
 
-现在您已经有了个人访问令牌，接下来在 Cursor 中设置 MCP 服务器：
+现在您已经配置了 Smithery GitHub 服务器，接下来在 Cursor 中设置 MCP 服务器：
 
 1. 打开 Cursor 编辑器
    
@@ -72,11 +98,10 @@
 5. 在弹出的对话框中填写以下信息：
    - Name：输入 "github"（或您喜欢的任何名称）
    - Type：选择 "command"
-   - Command：**不要**直接粘贴您的个人访问令牌！而是使用以下命令格式：
+   - Command：粘贴您从 Smithery 网站复制的命令，例如：
      ```
-     C:\Windows\System32\cmd.exe /c npx -y @smithery/cli@latest run @smithery-ai/github --config "{"githubPersonalAccessToken":"YOUR_TOKEN_HERE"}"
+     C:\Windows\System32\cmd.exe /c npx -y @smithery/cli@latest run @smithery-ai/github
      ```
-     将 `YOUR_TOKEN_HERE` 替换为您之前复制的个人访问令牌
    <img src="https://raw.githubusercontent.com/fanshouheng/cursor-github-mcp-tutorial/main/images/cursor-add-mcp.png" alt="Command Configuration" width="800"/>
    
 6. 点击 "Add" 按钮完成添加
@@ -112,9 +137,8 @@
 
 **解决方案**：
 - 检查您的个人访问令牌是否正确
-- 确保命令格式正确，特别是 JSON 配置部分
-- 尝试使用 Smithery 网站上提供的确切命令格式：
-  <img src="https://raw.githubusercontent.com/fanshouheng/cursor-github-mcp-tutorial/main/images/server-command.png" alt="Server Command" width="800"/>
+- 确保在 Smithery 网站上正确配置了令牌
+- 确保命令格式正确，尝试使用 Smithery 网站上提供的确切命令格式
 
 ### 问题：无法使用某些 GitHub 功能
 
@@ -134,7 +158,6 @@
   ```
   C:\Windows\System32\cmd.exe /c npx -y @smithery/cli@latest run @smithery-ai/github
   ```
-  <img src="https://raw.githubusercontent.com/fanshouheng/cursor-github-mcp-tutorial/main/images/windows-command.png" alt="Windows Command" width="800"/>
 
 ## 安全注意事项
 
